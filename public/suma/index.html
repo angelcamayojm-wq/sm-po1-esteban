@@ -1,55 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suma App - Python & Actions</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .card { background-color: #1e293b; border: 1px solid #334155; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 100%; max-width: 400px; text-align: center; }
-        h1 { font-size: 1.5rem; margin-bottom: 8px; color: #38bdf8; }
-        p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 24px; }
-        .input-group { text-align: left; margin-bottom: 16px; }
-        label { display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #cbd5e1; margin-bottom: 6px; }
-        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #475569; background-color: #0f172a; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.2s; }
-        input:focus { border-color: #38bdf8; }
-        button { width: 100%; padding: 12px; background-color: #0284c7; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
-        button:hover { background-color: #0369a1; }
-        .result-box { margin-top: 20px; padding: 14px; background-color: #064e3b; border: 1px solid #10b981; border-radius: 8px; color: #a7f3d0; font-weight: 600; display: none; }
-    </style>
-</head>
-<body>
-<div class="card">
-    <h1>➕ Suma App</h1>
-    <p>Ingresa dos números para calcular el resultado</p>
-    <div class="input-group">
-        <label for="num1">Primer Número</label>
-        <input type="number" id="num1" placeholder="Ej. 15" step="any">
-    </div>
-    <div class="input-group">
-        <label for="num2">Segundo Número</label>
-        <input type="number" id="num2" placeholder="Ej. 25" step="any">
-    </div>
-    <button onclick="realizarSuma()">Sumar Números</button>
-    <div id="resultado" class="result-box"></div>
-</div>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Suma | Neon Lab</title>
+<style>
+:root{--accent:#22d3ee;--bg:#070b16;--panel:#10182b;--line:#263453;--text:#f4f7ff;--muted:#9aa8c7}*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px;color:var(--text);font-family:Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 15% 0,#164e63,transparent 38%),var(--bg)}.shell{width:min(850px,100%);margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:55px}.nav a{color:var(--muted);text-decoration:none}.tag{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.15em}.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}.panel{padding:32px;border:1px solid var(--line);border-radius:24px;background:#10182bdd;box-shadow:0 25px 70px #0005}.panel h1{margin:10px 0;font-size:2.7rem}.panel p{color:var(--muted);line-height:1.6}.field{margin-top:22px}.field label{display:block;margin-bottom:8px;color:var(--muted);font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.field input{width:100%;padding:15px;border:1px solid var(--line);border-radius:12px;outline:0;color:var(--text);background:#080d1b;font-size:1.1rem}.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #22d3ee22}.actions{display:flex;gap:10px;margin-top:24px}.actions button{flex:1;padding:14px;border:0;border-radius:12px;color:#06212a;background:var(--accent);font-weight:800;cursor:pointer}.actions button.secondary{color:var(--text);background:#1c2841}.result{min-height:115px;margin-top:20px;padding:20px;border:1px solid #22d3ee66;border-radius:16px;color:var(--accent);background:#22d3ee0d;font-size:1.25rem;font-weight:800}.result small{display:block;margin-top:9px;color:var(--muted);font-size:.78rem;font-weight:400}.history h3{margin-top:0}.history ol{padding-left:20px;color:var(--muted);line-height:2}.history button{border:0;color:var(--accent);background:none;cursor:pointer}.tip{margin-top:30px;padding:16px;border-left:3px solid var(--accent);color:var(--muted);font-size:.9rem;line-height:1.5}@media(max-width:700px){.layout{grid-template-columns:1fr}.nav{margin-bottom:30px}}
+</style></head>
+<body><main class="shell"><nav class="nav"><a href="../">← Neon Lab</a><span class="tag">MODULE 01 / PYTHON</span></nav><div class="layout"><section class="panel"><div class="tag">OPERACIÓN BINARIA</div><h1>Suma inteligente</h1><p>Introduce dos números. La interfaz valida tus datos y guarda tus últimos resultados.</p><div class="field"><label for="num1">Entrada A</label><input id="num1" type="number" step="any" placeholder="0"></div><div class="field"><label for="num2">Entrada B</label><input id="num2" type="number" step="any" placeholder="0"></div><div class="actions"><button type="button" onclick="calcular()">Calcular suma</button><button class="secondary" type="button" onclick="limpiar()">Limpiar</button></div><div class="result" id="resultado" aria-live="polite">Esperando datos...<small>El resultado aparecerá aquí</small></div><div class="tip">Atajo: presiona <b>Enter</b> para calcular.</div></section><aside class="panel history"><h3>Historial local</h3><p>Se guarda solo en este navegador.</p><ol id="historial"><li>Aún no hay cálculos.</li></ol><button type="button" onclick="borrarHistorial()">Borrar historial</button></aside></div></main>
 <script>
-    function realizarSuma() {
-        const n1 = parseFloat(document.getElementById('num1').value);
-        const n2 = parseFloat(document.getElementById('num2').value);
-        const resDiv = document.getElementById('resultado');
-
-        if (!isNaN(n1) && !isNaN(n2)) {
-            const suma = n1 + n2;
-            resDiv.innerText = `La suma de ${n1} y ${n2} es: ${suma}`;
-            resDiv.style.display = 'block';
-        } else {
-            resDiv.innerText = '⚠️ Por favor ingresa dos números válidos';
-            resDiv.style.display = 'block';
-        }
-    }
-</script>
-</body>
-</html>
+const a=document.getElementById('num1'),b=document.getElementById('num2'),r=document.getElementById('resultado'),h=document.getElementById('historial');let historial=JSON.parse(localStorage.getItem('neon-suma')||'[]');function render(){h.innerHTML=historial.length?historial.map(x=>`<li>${x}</li>`).join(''):'<li>Aún no hay cálculos.</li>'}function calcular(){if(a.value===''||b.value===''){r.innerHTML='Completa las dos entradas.<small>Necesitamos dos números para continuar.</small>';return}const v=Number(a.value)+Number(b.value);r.innerHTML=`${a.value} + ${b.value} = ${v}<small>Resultado generado en modo Python</small>`;historial.unshift(`${a.value} + ${b.value} = ${v}`);historial=historial.slice(0,5);localStorage.setItem('neon-suma',JSON.stringify(historial));render()}function limpiar(){a.value='';b.value='';r.innerHTML='Esperando datos...<small>El resultado aparecerá aquí</small>'}function borrarHistorial(){historial=[];localStorage.removeItem('neon-suma');render()}[a,b].forEach(x=>x.addEventListener('keydown',e=>{if(e.key==='Enter')calcular()}));render();
+</script></body></html>

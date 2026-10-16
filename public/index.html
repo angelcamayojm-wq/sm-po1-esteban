@@ -1,25 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-App Python & Actions</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .card { background: #1e293b; border: 1px solid #334155; padding: 30px; border-radius: 16px; text-align: center; max-width: 400px; width: 100%; }
-        h1 { margin-bottom: 20px; color: #38bdf8; }
-        .btn { display: block; padding: 14px; margin: 12px 0; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; transition: 0.2s; }
-        .btn-suma { background: #0284c7; }
-        .btn-resta { background: #7c3aed; }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
-    </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Lab | Operaciones</title>
+<style>
+:root{--bg:#070b16;--panel:#10182b;--line:#263453;--text:#f4f7ff;--muted:#9aa8c7;--cyan:#22d3ee;--pink:#f472b6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 15% 10%,#18366b 0,transparent 32%),radial-gradient(circle at 88% 85%,#521b58 0,transparent 30%),var(--bg)}
+.wrap{width:min(1100px,100%);margin:auto;padding:28px 22px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em}.logo{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--cyan);border-radius:12px;color:var(--cyan);box-shadow:0 0 22px #22d3ee66}
+.theme{border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:var(--muted);background:#10182bcc;cursor:pointer}.hero{padding:85px 0 48px;max-width:790px}.kicker{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.hero h1{margin:14px 0;font-size:clamp(2.8rem,8vw,6.4rem);line-height:.93;letter-spacing:-.07em}.hero h1 span{color:var(--pink)}.hero p{max-width:600px;color:var(--muted);font-size:1.1rem;line-height:1.7}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{position:relative;overflow:hidden;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#16223cdd,#0d1426dd);text-decoration:none;color:var(--text);transition:.25s}.card:hover{transform:translateY(-7px);border-color:var(--cyan);box-shadow:0 16px 40px #0008}.card:after{content:"";position:absolute;width:150px;height:150px;right:-60px;bottom:-70px;border-radius:50%;background:var(--glow);filter:blur(4px)}.card.cyan{--glow:#22d3ee55}.card.pink{--glow:#f472b655}.symbol{font-size:2.4rem}.card h2{margin:18px 0 8px}.card p{position:relative;z-index:1;margin:0;color:var(--muted);line-height:1.5}.go{display:inline-block;position:relative;z-index:1;margin-top:23px;color:var(--cyan);font-weight:800}.stats{display:flex;gap:12px;margin-top:28px;color:var(--muted);font-size:.82rem}.stats b{color:var(--text)}@media(max-width:650px){.hero{padding-top:55px}.cards{grid-template-columns:1fr}.top{align-items:flex-start}}
+</style>
 </head>
-<body>
-    <div class="card">
-        <h1>🚀 Mis Aplicaciones</h1>
-        <a href="./suma/" class="btn btn-suma">➕ Ir a App de Suma</a>
-        <a href="./resta/" class="btn btn-resta">➖ Ir a App de Resta</a>
-    </div>
-</body>
-</html>
+<body><main class="wrap"><header class="top"><div class="brand"><div class="logo">∑</div><span>NEON LAB / 01</span></div><button class="theme" type="button" onclick="alternarTema()">◐ Cambiar ambiente</button></header>
+<section class="hero"><div class="kicker">Python + Django · laboratorio interactivo</div><h1>Calcula.<br><span>Experimenta.</span></h1><p>Dos herramientas, una interfaz diseñada para explorar operaciones de forma rápida, clara y visual.</p></section>
+<section class="cards"><a class="card cyan" href="./suma/"><div class="symbol">＋</div><h2>Suma / Python</h2><p>Combina valores y observa el resultado al instante.</p><span class="go">Abrir módulo →</span></a><a class="card pink" href="./resta/"><div class="symbol">−</div><h2>Resta / Django</h2><p>Calcula diferencias con una experiencia limpia y directa.</p><span class="go">Abrir módulo →</span></a></section>
+<div class="stats"><span><b>2</b> módulos</span><span>•</span><span><b>∞</b> posibilidades</span><span>•</span><span>modo interactivo</span></div></main>
+<script>function alternarTema(){document.body.classList.toggle('light');if(document.body.classList.contains('light')){document.documentElement.style.setProperty('--bg','#eef6ff');document.documentElement.style.setProperty('--panel','#fff');document.documentElement.style.setProperty('--text','#12203a');document.documentElement.style.setProperty('--muted','#52647f');}else{document.documentElement.style.setProperty('--bg','#070b16');document.documentElement.style.setProperty('--text','#f4f7ff');document.documentElement.style.setProperty('--muted','#9aa8c7');}}</script>
+</body></html>
